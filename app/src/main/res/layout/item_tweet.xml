@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ivProfPic"
+        android:onClick="onProfileView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_toRightOf="@id/ivProfPic"
+        android:id="@+id/tvFullName"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:id="@+id/tvUserName"
+        android:paddingLeft="3.5dp"
+        android:textIsSelectable="false"
+        android:textSize="12sp"
+        android:layout_alignBottom="@+id/tvFullName"
+        android:layout_toRightOf="@+id/tvFullName"
+        android:layout_toEndOf="@+id/tvFullName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My first tweet! #twitter"
+        android:id="@+id/tvBody"
+        android:layout_toRightOf="@+id/ivProfPic"
+        android:layout_toEndOf="@+id/ivProfPic"
+        android:layout_below="@id/tvUserName"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5m"
+        android:id="@+id/tvTimeStamp"
+        android:textSize="10sp"
+        android:layout_alignTop="@+id/tvUserName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
