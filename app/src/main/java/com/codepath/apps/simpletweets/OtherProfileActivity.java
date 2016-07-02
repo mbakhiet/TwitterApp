@@ -1,14 +1,18 @@
 package com.codepath.apps.simpletweets;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.simpletweets.fragments.UserTimelineFragment;
 import com.codepath.apps.simpletweets.models.User;
 import com.squareup.picasso.Picasso;
+
+import java.text.DecimalFormat;
+
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class OtherProfileActivity extends AppCompatActivity {
 
@@ -38,8 +42,23 @@ public class OtherProfileActivity extends AppCompatActivity {
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfPic);
         tvName.setText(user.getName());
         tvTagline.setText(user.getTagline());
-        tvFollowers.setText(user.getFollowers() + " Followers");
-        tvFollowing.setText(user.getFollowing() + " Following");
-        Picasso.with(this).load(user.getProfilePicUrl()).into(ivProfileImage);
+
+        DecimalFormat formatter = new DecimalFormat("#,###.##");
+
+        int followers = user.getFollowers();
+        int following = user.getFollowing();
+
+        if (followers < 1000000){
+            tvFollowers.setText(formatter.format(followers) + " Followers");
+        }
+        else{
+            double mfollowers = followers / 1000000.0;
+            tvFollowers.setText(formatter.format(mfollowers) + "m Followers");
+        }
+
+        tvFollowing.setText(formatter.format(following) + " Following");
+
+
+        Picasso.with(this).load(user.getProfilePicUrl()).transform(new RoundedCornersTransformation(3, 3)).into(ivProfileImage);
     }
 }

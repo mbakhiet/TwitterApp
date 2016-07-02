@@ -43,12 +43,24 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
         TextView tvPostDate = (TextView) convertView.findViewById(R.id.tvTimeStamp);
         TextView tvScreenName = (TextView) convertView.findViewById(R.id.tvFullName);
+        ImageView ivRetweet = (ImageView) convertView.findViewById(R.id.ivRetweet);
+
+        ivRetweet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = tweet.getUser().getScreenName();
+                Intent i = new Intent(getContext(), ComposeTweetActivity.class);
+                i.putExtra("username", name);
+                getContext().startActivity(i);
+            }
+        });
 
         //populate data into subviews
         tvUserName.setText("@" + tweet.getUser().getScreenName());
         tvScreenName.setText(tweet.getUser().getName());
         tvBody.setText(tweet.getBody());
         tvPostDate.setText(tweet.getRelTime());
+        ivRetweet.setImageResource(R.drawable.retweet);
 
         ivProfileImage.setImageResource(android.R.color.transparent);
         ivProfileImage.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +75,9 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
 
         Picasso.with(getContext()).load(tweet.getUser().getProfilePicUrl())
                 .transform(new RoundedCornersTransformation(3, 3)).into(ivProfileImage);
+
+
         //return view to be inserted into list
         return convertView;
     }
-
 }

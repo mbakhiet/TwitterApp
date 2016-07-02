@@ -17,6 +17,9 @@ android {
         }
     }
 }
+ext {
+    supportLibVersion = '23.4.0'  // variable that can be referenced to keep support libs consistent
+}
 
 repositories {
     jcenter()
@@ -29,7 +32,6 @@ dependencies {
         transitive = true
     }
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.android.support:design:23.0.0'
     // Picasso for remote image loading
     compile 'com.squareup.picasso:picasso:2.5.2'
     // Android Async Http for sending async network requests
@@ -39,4 +41,7 @@ dependencies {
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'jp.wasabeef:picasso-transformations:2.1.0'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile "com.android.support:design:23.1.1"
 }
+

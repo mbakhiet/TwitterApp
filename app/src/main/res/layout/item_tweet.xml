@@ -42,16 +42,24 @@
         android:layout_toRightOf="@+id/ivProfPic"
         android:layout_toEndOf="@+id/ivProfPic"
         android:layout_below="@id/tvUserName"
-        android:textColor="#000000" />
+        android:textColor="#7b7b7b" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5m"
         android:id="@+id/tvTimeStamp"
-        android:textSize="10sp"
+        android:textSize="14sp"
         android:layout_alignTop="@+id/tvUserName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivRetweet"
+        android:layout_below="@+id/tvBody"
+        android:layout_toRightOf="@+id/ivProfPic"
+        android:layout_toEndOf="@+id/ivProfPic" />
 
 </RelativeLayout>

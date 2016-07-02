@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -55,9 +56,9 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tvFollowing = (TextView) findViewById(R.id.tvFollowing);
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfPic);
         tvName.setText(user.getName());
-        tvTagline.setText(user.getTagline());
+        tvTagline.setText(user.getScreenName());
         tvFollowers.setText(user.getFollowers() + " Followers");
-        tvFollowing.setText(user.getFollowing() + " Following");
-        Picasso.with(this).load(user.getProfilePicUrl()).into(ivProfileImage);
+        tvFollowing.setText(user.getTagline() + " Following");
+        Picasso.with(this).load(user.getProfilePicUrl()).transform(new RoundedCornersTransformation(3, 3)).into(ivProfileImage);
     }
 }
